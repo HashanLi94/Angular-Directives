@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <label>Server Name : </label>
+      <input type="text"
+             class="form-control"
+             [(ngModel)]="serverName"
+      >
+<!--      <p> {{ serverName }}</p>-->
+
+      <p></p>
+
+      <button class="btn btn-primary"
+        [disabled]="!allowNewServer"
+
+         (click)="onServerCreation()"
+      >Add server</button>
+
+<!--      <p> {{ serverCreationStatus }}</p>-->
+
+<!--      *ngif directive-->
+      <p *ngIf="serverCreate ; else noServer"> server was created sucssesfully..!! sever name is {{ serverName }}</p>
+
+      <ng-template #noServer>
+        <p>No sever created..!!!</p>
+       </ng-template>
+
+    </div>
+
+    <div class="col-xs-12">
+
+      <app-server1></app-server1>
+<!--      *ngFor Derective to generate the servers like server2-->
+      <app-server2 *ngFor="let server2 of servers"></app-server2>
+
+    </div>
+  </div>
+</div>
+
